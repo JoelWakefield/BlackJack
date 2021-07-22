@@ -91,14 +91,14 @@ namespace BlackJackLibrary
                 }
 
                 //  else hit, pass, or show
-                Console.Write($"What does {player.Name} do?\t");
+                Console.Write($"What does {player.Name} do? (hit or stay)\t");
 
                 //  make decision
                 string input;
                 if (player.IsDealer)
                 {
                     Thread.Sleep(1400);
-                    input = score < 17 ? "hit" : "pass";
+                    input = score < 17 ? "hit" : "stay";
                     Console.Write($"{input}\n");
                 }
                 else
@@ -110,7 +110,7 @@ namespace BlackJackLibrary
                     case "hit":
                         player.Cards.Add(Deck.GetCard());
                         break;
-                    case "pass":
+                    case "stay":
                         playing = false;
                         break;
                     default:

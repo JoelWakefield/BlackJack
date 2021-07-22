@@ -12,7 +12,7 @@ namespace BlackJack
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("♥ WELCOME ♦ TO ♣ BLACKJACK ♠");
             Run();
-            Console.WriteLine("The house always wins.");
+            Console.WriteLine("The house always wins... ;)");
             Console.ReadLine();
         }
 
