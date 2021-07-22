@@ -65,7 +65,7 @@ namespace BlackJackLibrary
 
         private void Turn(Player player)
         {
-            Console.WriteLine($">{player.Name}'s turn.");
+            Console.WriteLine($"> {player.Name}'s turn");
             bool playing = true;
 
             do
@@ -79,14 +79,14 @@ namespace BlackJackLibrary
                 //  boot if busted
                 if (score > 21)
                 {
-                    Console.WriteLine(" Bust!");
+                    Console.WriteLine("  Bust!");
                     break;
                 }
 
                 //  if 21 - end turn
                 if (score == 21)
                 {
-                    Console.WriteLine(" Blackjack!");
+                    Console.WriteLine("  Blackjack!");
                     break;
                 }
 
@@ -125,7 +125,7 @@ namespace BlackJackLibrary
             Console.OutputEncoding = Encoding.UTF8;
             foreach (var player in Players)
             {
-                Console.Write($" {player.Name}'s hand ({player.Score()}):\t");
+                Console.Write($"  {player.Name}'s hand ({player.Score()}):\t");
                 foreach (var card in player.Cards)
                     Console.Write($"{card.Show()}\t");
                 Console.WriteLine();
