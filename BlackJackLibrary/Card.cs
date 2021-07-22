@@ -14,6 +14,6 @@ namespace BlackJackLibrary
         public string Suit { get; set; }
         public bool IsHidden { get; set; }
 
-        public string Show() => $"{Name} of {Suit} ({Value})";
+        public string Show() => $"{(IsHidden ? "? of ?" : $"{Name} of {Suit} ({Value})")}";
     }
 }

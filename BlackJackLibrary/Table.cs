@@ -68,6 +68,11 @@ namespace BlackJackLibrary
             Console.WriteLine($"> {player.Name}'s turn");
             bool playing = true;
 
+            //  reveal dealer card
+            if (player.IsDealer)
+                foreach (var card in player.Cards)
+                    card.IsHidden = false;
+
             do
             {
                 //  evaluate hand
@@ -125,7 +130,7 @@ namespace BlackJackLibrary
             Console.OutputEncoding = Encoding.UTF8;
             foreach (var player in Players)
             {
-                Console.Write($"  {player.Name}'s hand ({player.Score()}):\t");
+                Console.Write($"  {player.Name}'s hand:\t");
                 foreach (var card in player.Cards)
                     Console.Write($"{card.Show()}\t");
                 Console.WriteLine();
@@ -151,18 +156,29 @@ namespace BlackJackLibrary
 
                 string msg = $"{player.Name} ";
                 if (playerScore > 21)
+                {
                     msg += "busted...";
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
                 else
                 {
                     msg += $"scored {playerScore}.";
 
                     if (dealerScore > 21 || playerScore > dealerScore)
+                    {
                         player.Money += Bet * 2;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
                     else if (playerScore == dealerScore)
+                    {
                         player.Money += Bet;
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                    }
                 }
 
+
                 Console.WriteLine($"{msg} ${player.Money} left in the wallet.");
+                Console.ResetColor();
             }
         }
     }

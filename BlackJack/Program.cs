@@ -86,7 +86,9 @@ namespace BlackJack
                 table.ClearCards();
             } while (true);
 
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"You walk away with ${player.Money}.\n");
+            Console.ResetColor();
         }
     }
 }
